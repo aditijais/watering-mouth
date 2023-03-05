@@ -19,10 +19,27 @@ function Home(){
         
                  restro.map((data)=>{
                     return(
-                    <div>{data.name}</div>
+                    <>
+                    <div className="restro--name">{data.name}</div>
+                    <div>{
+                      data.menu && data.menu.map((data1)=>{
+                        return(
+                        <div className="menu--list">
+                        <ol>
+                          {data1.name && <li>Item Name : {data1.name}</li>}
+                          {data1.price && <li>Price : {data1.price}</li>}
+                          {data1.description && <li>Description : {data1.description}</li>}
+                        </ol>
+                        
+                        </div>
+                        )
+                      })
+                      }
+                    </div>
+                    </>
                     )
                  })
-               
+                 
             
            }
       </div>
