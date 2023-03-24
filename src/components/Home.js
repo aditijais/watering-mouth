@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import {Link} from "react-router-dom";
 function Home(){
     
     const [restro,setRestro]  = useState([]);
@@ -18,24 +19,13 @@ function Home(){
       <div>{
         
                  restro.map((data)=>{
+                  let url = `/${data.id}`
                     return(
                     <>
-                    <div className="restro--name">{data.name}</div>
-                    <div>{
-                      data.menu && data.menu.map((data1)=>{
-                        return(
-                        <div className="menu--list">
-                        <ol>
-                          {data1.name && <li>Item Name : {data1.name}</li>}
-                          {data1.price && <li>Price : {data1.price}</li>}
-                          {data1.description && <li>Description : {data1.description}</li>}
-                        </ol>
-                        
-                        </div>
-                        )
-                      })
-                      }
-                    </div>
+                    
+                    <Link to= {url}>
+                    <div key={data.id} className="restro--name">{data.name}</div>
+                    </Link>
                     </>
                     )
                  })

@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom"
 import Home from './components/Home';
+import { Menu } from './components/Menu';
 
 function App() {
   return (
@@ -16,16 +17,18 @@ function App() {
           <div className="App">
             <p className='Home--head'>Hey Ya, Welcome to Watering Mouth!!</p>
             <p className='Home--description'>Order delicious Food of your choice at minimal prices and enjoy the best offers .....</p>
-            
+            <Home/>
           </div>
           }
         />
         <Route 
-           path="/Home"
+           path="/:id"
            element={
-            <Home/>
+            <Menu/>
            }
         />
+           
+      
     </Routes>
     </Router>
   );
